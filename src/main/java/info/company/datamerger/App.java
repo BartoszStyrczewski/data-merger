@@ -41,7 +41,7 @@ public class App {
             .reduce(sum());
     //            .reduce(IntegerMerger.multiply());
 
-    System.out.println("sum result: " + (integer.orElse(0)));
+    log.info("sum result: " + (integer.orElse(0)));
 
     // string providers
     List<DataProvider<String>> stringProviders = new ArrayList<>();
@@ -59,9 +59,9 @@ public class App {
                   log.info("s: " + s);
                   return s;
                 })
-            .reduce((s1, s2) -> s1 + " <!> " + s2);
+            .reduce((s1, s2) -> s1 + " : " + s2);
 
-    System.out.println("concat result: " + (string.orElse("")));
+    log.info("concat result: " + (string.orElse("")));
 
     // money providers
     List<DataProvider<Money>> moneyProviders = new ArrayList<>();
@@ -86,6 +86,7 @@ public class App {
                             m2.convertedTo(
                                 USD, getExchangeRate(m2.getCurrencyUnit(), USD), RoundingMode.HALF_UP)));
 
-    System.out.println("money result: " + (money.orElseGet(() -> Money.zero(USD))));
+    log.info("money result: " + (money.orElseGet(() -> Money.zero(USD))));
+    System.exit(0);
   }
 }
