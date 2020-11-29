@@ -19,9 +19,9 @@ public final class ExchangeRates {
   private static final Map<Tuple2<CurrencyUnit, CurrencyUnit>, BigDecimal> exchangeRates =
       Map.of(
           new Tuple2<>(USD, EUR),
-          new BigDecimal(0.84, MATH_CONTEXT),
+          new BigDecimal("0.84", MATH_CONTEXT),
           new Tuple2<>(EUR, USD),
-          new BigDecimal(1.20, MATH_CONTEXT));
+          new BigDecimal("1.20", MATH_CONTEXT));
 
   public static BigDecimal getExchangeRate(CurrencyUnit c1, CurrencyUnit c2) {
     if (c1.equals(c2)) {
