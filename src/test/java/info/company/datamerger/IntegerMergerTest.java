@@ -7,9 +7,9 @@ class IntegerMergerTest {
 
   @Test
   public void testPlus() {
-    Assertions.assertEquals(4, IntegerMerger.plus().apply(2, 2));
-    Assertions.assertEquals(-3, IntegerMerger.plus().apply(-3, 0));
-    Assertions.assertEquals(0, IntegerMerger.plus().apply(0, 0));
+    Assertions.assertEquals(4, IntegerMerger.sum().apply(2, 2));
+    Assertions.assertEquals(-3, IntegerMerger.sum().apply(-3, 0));
+    Assertions.assertEquals(0, IntegerMerger.sum().apply(0, 0));
   }
 
   @Test

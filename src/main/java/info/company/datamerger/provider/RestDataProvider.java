@@ -14,6 +14,10 @@ import java.net.http.HttpResponse;
 import java.time.Duration;
 import java.util.function.Function;
 
+import static info.company.datamerger.provider.HttpBodyParser.intParser;
+import static info.company.datamerger.provider.HttpBodyParser.stringParser;
+import static info.company.datamerger.provider.RestEndpoints.INT;
+import static info.company.datamerger.provider.RestEndpoints.STRING;
 import static java.util.logging.Level.SEVERE;
 
 @Log
@@ -22,6 +26,14 @@ public class RestDataProvider<D> implements DataProvider<D> {
 
   @NonNull private final String URI;
   @NonNull private final Function<String, D> responseParser;
+
+  public static RestDataProvider<Integer> intDataProvider() {
+    return new RestDataProvider<>(INT, intParser());
+  }
+
+  public static RestDataProvider<String> stringDataProvider() {
+    return new RestDataProvider<>(STRING, stringParser());
+  }
 
   private Try<HttpRequest> getRequest() {
     return Try.of(

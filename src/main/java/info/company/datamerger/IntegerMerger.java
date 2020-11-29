@@ -2,7 +2,7 @@ package info.company.datamerger;
 
 public interface IntegerMerger extends Merger<Integer> {
 
-  static Merger<Integer> plus() {
+  static Merger<Integer> sum() {
     return Integer::sum;
   }
 

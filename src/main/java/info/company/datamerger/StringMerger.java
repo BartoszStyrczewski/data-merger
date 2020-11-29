@@ -1,6 +1,6 @@
 package info.company.datamerger;
 
-public interface StringMerger extends Merger<String>{
+public interface StringMerger extends Merger<String> {
 
   static Merger<String> comma() {
     return (s1, s2) -> String.join(",", s1, s2);
