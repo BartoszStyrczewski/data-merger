@@ -13,6 +13,7 @@ import java.util.List;
 import java.util.Optional;
 
 import static info.company.datamerger.ExchangeRates.getExchangeRate;
+import static info.company.datamerger.IntegerMerger.sum;
 import static org.joda.money.CurrencyUnit.USD;
 
 @Log
@@ -37,7 +38,7 @@ public class App {
                   log.info("i: " + i);
                   return i;
                 })
-            .reduce(IntegerMerger.sum());
+            .reduce(sum());
     //            .reduce(IntegerMerger.multiply());
 
     System.out.println("sum result: " + (integer.orElse(0)));
